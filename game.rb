@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'system.rb')
+require './lib/system.rb'
 include System
 
 class Game
