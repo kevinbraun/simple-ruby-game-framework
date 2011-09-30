@@ -1,5 +1,7 @@
 require 'rubygems'
-require 'rubygame'
+require 'bundler/setup'
+
+Bundler.require
 
 module System
   def init_display(resolution=nil)
