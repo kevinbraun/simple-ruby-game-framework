@@ -1,13 +1,17 @@
 require 'rubygems'
 require 'rubygame'
 
-module System    
-  def init_display
+module System
+  def init_display(resolution=nil)
     max_resolution = Rubygame::Screen.get_resolution
-    puts "You can handle #{max_resolution.join(' x ')}"
+    puts "You can handle a resolution up to #{max_resolution.join(' x ')}"
     default_depth = 0
-    @screen = Rubygame::Screen.open max_resolution, default_depth, [Rubygame::HWSURFACE, Rubygame::DOUBLEBUF, Rubygame::FULLSCREEN]
-    @screen.title = "Ruby Game"
+    
+    display_settings = [Rubygame::HWSURFACE, Rubygame::DOUBLEBUF]
+    display_settings << Rubygame::FULLSCREEN if resolution.nil? or resolution == max_resolution
+    
+    @screen = Rubygame::Screen.open (resolution || max_resolution), default_depth, display_settings
+    @screen.title = "Simple Ruby Game"
   end
   
   def init_event_queue  

@@ -3,7 +3,7 @@ include System
 
 class Game
   def initialize
-    init_display
+    init_display [1024,768]
     init_event_queue
   end
 
