@@ -1,7 +1,9 @@
-require './lib/system_setup.rb'
-include SystemSetup
+Dir["./lib/**/*.rb"].each { |src| require src }
 
 class Game
+  # Module includes
+  include SystemSetup
+
   # Initialize the game object itself, including the display, event queue, system clock,
   # etc etc.  This is currently all handled in the SystemSetup module.
   def initialize
